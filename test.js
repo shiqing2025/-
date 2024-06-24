@@ -1,7 +1,10 @@
 function getAllEnumerableKeys(obj) {
   const keys = [];
 
-  for (const key in obj) {
+  // for (const key in obj) {
+  //   keys.push(key);
+  // }
+  for (const key of Object.keys(obj)) {
     keys.push(key);
   }
 
