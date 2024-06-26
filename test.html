@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      /* 基础样式 */
+      .input-box {
+        width: 300px; /* 输入框宽度 */
+        padding: 10px; /* 内边距 */
+        border: 1px solid #ccc; /* 边框样式 */
+        border-radius: 4px; /* 边框圆角 */
+        transition: border-color 1s; /* 边框颜色渐变效果 */
+      }
+
+      /* 鼠标悬停时的样式 */
+      .input-box:hover {
+        border-bottom: 4px solid transparent; /* 设置下边框宽度和透明色 */
+        border-image: linear-gradient(to right, red, blue, red) 1; /* 设置渐变色 */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="input-wrapper">
+      <input type="text" class="input-box" placeholder="请输入内容" />
+    </div>
+  </body>
+</html>
