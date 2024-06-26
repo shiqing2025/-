@@ -1,5 +1,5 @@
 /** 
- * 使用 setinterval 模拟实现 settimeout 
+ * 使用 setInterval 模拟实现 setTimeout 
  * 
  * 思路: 执行一次后清除定时器
 */
