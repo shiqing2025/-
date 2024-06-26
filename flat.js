@@ -28,10 +28,13 @@ const func3 = (arr) => {
 // console.log(func3(arr));
 
 // 4. 使用 reduce
-const func4 = (arr) => {
-  return arr.reduce((pre, cur) => {
-    return pre.concat(Array.isArray(cur) ? func4(cur) : cur)
-  }, [])
+{
+  const flat = (arr) => {
+    if (!arr.length) return;
+    return arr.reduce((pre, cur) => Array.isArray(cur) ? [...pre, ...flat(cur)] : [...pre, cur], [])
+  }
+  console.log(flat(arr));
 }
-console.log(func4(arr));
+
+/* 注意 对于单行代码,若加了{} 一定要return */
 
