@@ -1,24 +1,8 @@
-function getAllEnumerableKeys(obj) {
-  const keys = [];
-
-  // for (const key in obj) {
-  //   keys.push(key);
-  // }
-  for (const key of Object.keys(obj)) {
-    keys.push(key);
-  }
-
-  return keys;
+function Animal(name, language) {
+  this.name = name;
+  this.say = function () {
+    console.log(this.name + " say " + language);
+  };
 }
 
-const obj1 = {
-  a: 1,
-  b: 2
-};
-
-const obj2 = Object.create(obj1);
-obj2.c = 3;
-obj2.d = 4;
-
-const keys = getAllEnumerableKeys(obj2);
-console.log(keys); // 输出：[ 'c', 'd', 'a', 'b' ]
+const cat = new Animal("cat", "meow");
