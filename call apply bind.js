@@ -85,42 +85,42 @@ Function.prototype.myBind = function (context, ...args) {
 }
 
 
-function Person(name) { // 构造函数
-  this.name = name;
-}
-
-Person.prototype.sayHello = function () { // 原型方法
-  console.log('Hello, ' + this.name);
-};
-
-const person1 = { name: 'Alice' };
-
-// 使用 bind 创建一个绑定函数, 将person1作为上下文对象
-const BoundPerson = Person.bind(person1);
-
-// 使用 new 操作符调用绑定函数
-const newPerson = new BoundPerson('Bob');
-
-// 检查新创建的对象
-console.log(newPerson); // 输出: Person { name: 'Bob' }
-newPerson.sayHello(); // 输出: Hello, Bob
-
-// 检查原型链
-console.log(newPerson instanceof Person); // 输出: true
-console.log(newPerson instanceof BoundPerson); // 输出: true
-
-
-// function greet(greeting, punctuation) {
-//   console.log(greeting + ', ' + this.name + punctuation);
+// function Person(name) { // 构造函数
+//   this.name = name;
 // }
 
-// const person1 = { name: 'qq' };
-// const person2 = { name: 'hh' };
+// Person.prototype.sayHello = function () { // 原型方法
+//   console.log('Hello, ' + this.name);
+// };
 
-// const greetPerson1 = greet.bind(person1, 'Hello');
-// const greetPerson2 = greet.bind(person2, 'Hi');
+// const person1 = { name: 'Alice' };
 
-// greetPerson1('!'); // 输出: Hello, Alice!
-// greetPerson2('...'); // 输出: Hi, Bob...
+// // 使用 bind 创建一个绑定函数, 将person1作为上下文对象
+// const BoundPerson = Person.bind(person1);
+
+// // 使用 new 操作符调用绑定函数
+// const newPerson = new BoundPerson('Bob');
+
+// // 检查新创建的对象
+// console.log(newPerson); // 输出: Person { name: 'Bob' }
+// newPerson.sayHello(); // 输出: Hello, Bob
+
+// // 检查原型链
+// console.log(newPerson instanceof Person); // 输出: true
+// console.log(newPerson instanceof BoundPerson); // 输出: true
+
+
+function greet(greeting, punctuation) {
+  console.log(greeting + ', ' + this.name + punctuation);
+}
+
+const person1 = { name: 'qq' };
+const person2 = { name: 'hh' };
+
+const greetPerson1 = greet.myBind(person1, 'Hello');
+const greetPerson2 = greet.myBind(person2, 'Hi');
+
+greetPerson1('!'); // 输出: Hello, Alice!
+greetPerson2('...'); // 输出: Hi, Bob...
 
 
