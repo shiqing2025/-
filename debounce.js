@@ -3,7 +3,7 @@
  * 如果在规定的时间内再次触发该函数，则会重新计算执行时间。
 */
 
-const debounce = (fn, delay) => {
+const debounce = (fn, delay = 300) => {
   let timer = null;
   return (...args) => { // 返回一个函数
     // console.log('args', args);
