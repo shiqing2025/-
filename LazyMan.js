@@ -39,8 +39,10 @@ class LazyManClass {
 
 
   next() {
-    const fn = this.taskList.shift();
-    fn && fn();
+    if (this.taskList.length > 0) {
+      const fn = this.taskList.shift();
+      fn && fn();
+    }
   }
 }
 
