@@ -2,19 +2,17 @@
 bind 方法允许我们创建具有预设 this 上下文的新函数。
 */
 Function.prototype.myBind = function (context, ...args) {
+  // 检查调用bind者(this)是否为函数
   if (typeof this !== 'function') {
     throw new TypeError('Not a function');
   }
-  const self = this;
 
-  const boundFunc = function (...restArgs) {
-    ctx = this instanceof boundFunc ? this : context;
-    return self.apply(ctx, args.concat(restArgs));
+  context = context || globalThis;
+
+  const func = (...restArgs) => {
+    return this.apply(context, args.concat(restArgs));
   }
-  boundFunc.prototype = Object.create(this.prototype);
-  console.log('--boundFunc', boundFunc);
-  console.log('----context', context);
-  return boundFunc;
+  return func;
 }
 
 function greet(greeting, punctuation) {

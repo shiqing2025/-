@@ -5,11 +5,11 @@ Function.prototype.myCall = function (context, ...args) {
     throw new TypeError('not a function');
   }
   context = context || globalThis;
-  const fn = Symbol('this');
-  context[fn] = this;
-  console.log('args---', args);
-  res = context[fn](...args)
-  delete context[fn];
+  const fn = Symbol('this'); // 方法命名注意不能重名,故用Symbol
+  context[fn] = this; // 将函数作为 传入对象的方法
+
+  res = context[fn](...args) // 执行对象方法 
+  delete context[fn]; // 注意需要删除对象方法
   return res;
 }
 
