@@ -12,9 +12,10 @@ class LazyManClass {
 
   // eat
   eat(type) {
-    const fn = () => {
+    const _this = this;
+    const fn = function () {
       console.log('eat--', type);
-      this.next();
+      _this.next();
     }
     this.taskList.push(fn);
     return this;
@@ -22,11 +23,12 @@ class LazyManClass {
 
   // sleep
   sleep(second) {
-    const fn = () => {
+    const _this = this;
+    const fn = function () {
       console.log('need sleep ', second, 'second');
       setTimeout(() => {
         console.log('Done')
-        this.next();
+        _this.next();
       }, second * 1000)
     }
     this.taskList.push(fn);

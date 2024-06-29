@@ -30,7 +30,7 @@ class LazyManClass {
       console.log(`Now i will sleep ${time} second`)
       setTimeout(() => {
         console.log(`Already sleep`);
-        this.next();
+        this.next(); // 这种this要尤其注意
       }, time * 1000);
     }
     this.taskList.push(fn);
